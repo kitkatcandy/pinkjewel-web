@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carrito de Compras</title>
+  <link rel="stylesheet" type="text/css" href="hojaestilos.css">
+  <link rel="icon" href="pinkjewel.png">
+</head>
+<body>
+
+<!-- Carrito de compras -->
+<div id="carrito-container">
+  <h2>🛒 Carrito de Compras</h2>
+  <ul id="lista-carrito">
+    <!-- Los productos se cargarán desde localStorage -->
+  </ul>
+  <div id="total-container">
+    <h3>Total: $<span id="total">0</span></h3>
+  </div>
+  <button class="boton-carrito" id="vaciar-carrito" onclick="vaciarCarrito()">Vaciar carrito</button>
+  <button class="boton-carrito" id="realizar-compra" onclick="realizarCompra()">Realizar compra</button>
+</div>
+
+<!-- Modal de Pago -->
+<div id="modal-pago" class="modal" style="display: none;">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarModal()">&times;</span>
+    <h2>Información de Pago</h2>
+    <form id="formulario-pago" onsubmit="procesarPago(event)">
+      <label>Nombre en la tarjeta:</label>
+      <input type="text" id="nombre" required><br>
+
+      <label>Número de tarjeta:</label>
+      <input type="text" id="tarjeta" required pattern="\d{16}" placeholder="16 dígitos"><br>
+
+      <label>Fecha de vencimiento:</label>
+      <input type="month" id="vencimiento" required><br>
+
+      <label>CVV:</label>
+      <input type="text" id="cvv" required pattern="\d{3}" placeholder="3 dígitos"><br>
+
+      <button type="submit" class="boton-carrito">Confirmar compra</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  const listaCarrito = document.getElementById('lista-carrito');
+  const totalElemento = document.getElementById('total');
+  let total = 0;
+
+  // Cargar productos del carrito desde localStorage
+  const productosEnCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+  productosEnCarrito.forEach(producto => agregarAlCarrito(producto));
+
+  function agregarAlCarrito(producto) {
+    const item = document.createElement('li');
+    item.textContent = `${producto.nombre} - $${producto.precio}`;
+
+    const botonEliminar = document.createElement('button');
+    botonEliminar.textContent = 'X';
+    botonEliminar.classList.add('eliminar-btn');
+    botonEliminar.onclick = function () {
+      item.remove();
+      eliminarDelLocalStorage(producto);
+    };
+
+    item.appendChild(botonEliminar);
+    listaCarrito.appendChild(item);
+    actualizarTotal(producto.precio);
+  }
+
+  function actualizarTotal(precio) {
+    total += precio;
+    totalElemento.textContent = total.toFixed(2);
+  }
+
+  function eliminarDelLocalStorage(producto) {
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const index = carrito.findIndex(item => item.nombre === producto.nombre && item.precio === producto.precio);
+    if (index !== -1) {
+      carrito.splice(index, 1);
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      total -= producto.precio;  // Restar del total
+      totalElemento.textContent = total.toFixed(2);
+    }
+  }
+
+  function vaciarCarrito() {
+    listaCarrito.innerHTML = '';
+    total = 0;
+    totalElemento.textContent = total.toFixed(2);
+    localStorage.removeItem('carrito');
+  }
+
+  function realizarCompra() {
+    if (listaCarrito.children.length === 0) {
+      alert("El carrito está vacío. Agrega productos antes de comprar.");
+      return;
+    }
+    document.getElementById("modal-pago").style.display = "block";
+  }
+
+  function cerrarModal() {
+    document.getElementById("modal-pago").style.display = "none";
+  }
+
+  function procesarPago(event) {
+    event.preventDefault();
+    alert(`¡Compra realizada exitosamente! 💳💎 Total: $${total.toFixed(2)}`);
+    cerrarModal();
+    vaciarCarrito();
+  }
+</script>
+
+<a href="index.html">
+  <div class="contenedor2">
+    <button class="regresar2">Regresar</button>
+  </div>
+</a>
+
+</body>
+</html>
