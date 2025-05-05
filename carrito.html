@@ -9,19 +9,20 @@
 </head>
 <body>
 
-<h2 style="text-align:center;">🛒 Carrito de Compras</h2>
-<ul id="lista-carrito">
-  <!-- Los productos se cargarán desde localStorage -->
-</ul>
-
-<div id="total-container" style="text-align:center; margin-top: 20px;">
-  <h3>Total: $<span id="total">0</span></h3>
-</div>
-
-<div style="text-align:center; margin-top: 10px;">
+<!-- Carrito de compras -->
+<center>
+<div id="carrito-container">
+  <h2>🛒 Carrito de Compras</h2>
+  <ul id="lista-carrito">
+    <!-- Los productos se cargarán desde localStorage -->
+  </ul>
+  <div id="total-container">
+    <h3>Total: $<span id="total">0</span></h3>
+  </div>
   <button class="boton-carrito" id="vaciar-carrito" onclick="vaciarCarrito()">Vaciar carrito</button>
   <button class="boton-carrito" id="realizar-compra" onclick="realizarCompra()">Realizar compra</button>
 </div>
+</center>
 
 <!-- Modal de Pago -->
 <div id="modal-pago" class="modal" style="display: none;">
@@ -51,6 +52,7 @@
   const totalElemento = document.getElementById('total');
   let total = 0;
 
+  // Cargar productos del carrito desde localStorage
   const productosEnCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
   productosEnCarrito.forEach(producto => agregarAlCarrito(producto));
 
@@ -82,7 +84,7 @@
     if (index !== -1) {
       carrito.splice(index, 1);
       localStorage.setItem('carrito', JSON.stringify(carrito));
-      total -= producto.precio;
+      total -= producto.precio;  // Restar del total
       totalElemento.textContent = total.toFixed(2);
     }
   }
@@ -115,18 +117,17 @@
 </script>
 
 <a href="index.html">
-  <div class="contenedor2" style="text-align:center; margin-top: 30px;">
+  <div class="contenedor2">
     <button class="regresar2">Regresar</button>
   </div>
 </a>
 
-<br><br>
 <footer class="footer2">
   <p>&copy; 2025 Blue Jewel. Todos los derechos reservados.</p>
 </footer>
 
-<style>
-body {
+<style type="text/css">
+  html, body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -140,12 +141,10 @@ body {
 
 footer.footer2 {
   margin-top: auto;
-  background-color: #663546; /* Puedes cambiar el color si lo deseas */
-  text-align: center;
+  background-color: #663546;
   padding: 15px 0;
   font-size: 14px;
 }
-
 </style>
 </body>
 </html>
