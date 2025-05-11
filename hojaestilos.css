@@ -270,13 +270,6 @@ body {
   font-size: 35px;
 }
 
-.footer {
-  background-color: #EC1C61;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
 .productos-container3 {
   display: flex;
   flex-wrap: wrap;
@@ -291,6 +284,7 @@ body {
   background-color: #EC1C61;
   color: white;
 }
+
 
 footer.footer2 {
   margin-top: auto;
