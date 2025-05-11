@@ -13,13 +13,13 @@
   <h2 class="pagina2">Dijes</h2>
 </header>
 
-  <!-- Buscador por tipo -->
-<div style="text-align: center; margin-top: 20px;">
-  <label for="tipoSelector">Filtrar por tipo:</label>
-  <select id="tipoSelector" onchange="filtrarPorTipo()">
+<!-- Buscador por color -->
+<div class="filtro-color">
+  <label for="colorSelector">Filtrar por color:</label>
+  <select id="colorSelector" onchange="filtrarPorColor()">
     <option value="todos">Todos</option>
-    <option value="corazón">Corazón</option>
-    <option value="girasol">Girasol</option>
+    <option value="rojo">Rojo</option>
+    <option value="dorado">Dorado</option>
   </select>
 </div>
 
@@ -38,14 +38,14 @@
 <div class="productos-container">
   <div class="productos">
     <a href="dijescorazon.html">
-      <img src="dije1C.png" alt="Dije Corazón">
+      <img src="dije1C.png" alt="Dije rojo corazón">
     </a>
     <button class="boton-carrito" onclick="agregarAlCarrito('Dije Corazón', 159)">Agregar al carrito</button>
   </div>
 
   <div class="productos">
     <a href="dijesgirasol.html">
-      <img src="girasoldije.png" alt="Dije Girasol">
+      <img src="girasoldije.png" alt="Dije dorado girasol">
     </a>
     <button class="boton-carrito" onclick="agregarAlCarrito('Dije Girasol', 229)">Agregar al carrito</button>
   </div>
@@ -67,7 +67,7 @@
   <p>&copy; 2025 Blue Jewel. Todos los derechos reservados.</p>
 </footer>
 
-<!-- Script actualizado para guardar nombre + precio -->
+<!-- Script para carrito y filtro por color -->
 <script>
   function agregarAlCarrito(nombre, precio) {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -76,20 +76,19 @@
     alert(`${nombre} fue agregado al carrito por $${precio}.`);
   }
 
-  function filtrarPorTipo() {
-  const seleccion = document.getElementById('tipoSelector').value.toLowerCase();
-  const productos = document.querySelectorAll('.productos');
+  function filtrarPorColor() {
+    const seleccion = document.getElementById('colorSelector').value.toLowerCase();
+    const productos = document.querySelectorAll('.productos');
 
-  productos.forEach(producto => {
-    const alt = producto.querySelector('img').alt.toLowerCase();
-    if (seleccion === 'todos' || alt.includes(seleccion)) {
-      producto.style.display = 'inline-block';
-    } else {
-      producto.style.display = 'none';
-    }
-  });
-}
-
+    productos.forEach(producto => {
+      const alt = producto.querySelector('img').alt.toLowerCase();
+      if (seleccion === 'todos' || alt.includes(seleccion)) {
+        producto.style.display = 'inline-block';
+      } else {
+        producto.style.display = 'none';
+      }
+    });
+  }
 </script>
 
 </body>
