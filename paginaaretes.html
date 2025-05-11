@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
   <meta charset="utf-8">
@@ -13,14 +13,14 @@
   <h2 class="pagina2">Aretes</h2>
 </header>
 
-  <!-- Buscador por color -->
-<div style="text-align: center; margin-top: 20px;">
+<!-- Buscador por color -->
+<div class="filtro-color">
   <label for="colorSelector">Filtrar por color:</label>
   <select id="colorSelector" onchange="filtrarPorColor()">
     <option value="todos">Todos</option>
-    <option value="lirio">Lirio</option>
-    <option value="libélula">Libélula</option>
-    <option value="corazón">Corazón</option>
+    <option value="blanco">Blanco</option>
+    <option value="negro">Negro</option>
+    <option value="morado">Morado</option>
   </select>
 </div>
 
@@ -40,21 +40,21 @@
 <div class="productos-container">
   <div class="productos">
     <a href="aretelirio.html">
-      <img src="aretes1C.png" style="width: 300px; height: auto;" alt="Arete Lirio">
+      <img src="aretes1C.png" style="width: 300px; height: auto;" alt="Arete blanco lirio">
     </a>
     <button class="boton-carrito" onclick="agregarAlCarrito('Arete Lirio', 279)">Agregar al carrito</button>
   </div>
 
   <div class="productos">
     <a href="aretelibelula.html">
-      <img src="aretes2.png" style="width: 300px; height: auto;" alt="Arete Libélula">
+      <img src="aretes2.png" style="width: 300px; height: auto;" alt="Arete negro libélula">
     </a>
     <button class="boton-carrito" onclick="agregarAlCarrito('Arete Libélula', 169)">Agregar al carrito</button>
   </div>
 
   <div class="productos">
     <a href="aretecorazon.html">
-      <img src="aretes3.png" style="width: 300px; height: auto;" alt="Arete Corazón">
+      <img src="aretes3.png" style="width: 300px; height: auto;" alt="Arete morado corazón">
     </a>
     <button class="boton-carrito" onclick="agregarAlCarrito('Arete Corazón', 295)">Agregar al carrito</button>
   </div>
@@ -76,7 +76,7 @@
   <p>&copy; 2025 Blue Jewel. Todos los derechos reservados.</p>
 </footer>
 
-<!-- Script actualizado para guardar nombre + precio -->
+<!-- Script para carrito y filtrado por color -->
 <script>
   function agregarAlCarrito(nombre, precio) {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -84,21 +84,20 @@
     localStorage.setItem('carrito', JSON.stringify(carrito));
     alert(`${nombre} fue agregado al carrito por $${precio}.`);
   }
-function filtrarPorColor() {
-  const seleccion = document.getElementById('colorSelector').value.toLowerCase();
-  const productos = document.querySelectorAll('.productos');
 
-  productos.forEach(producto => {
-    const alt = producto.querySelector('img').alt.toLowerCase();
-    if (seleccion === 'todos' || alt.includes(seleccion)) {
-      producto.style.display = 'inline-block';
-    } else {
-      producto.style.display = 'none';
-    }
-  });
-}
+  function filtrarPorColor() {
+    const seleccion = document.getElementById('colorSelector').value.toLowerCase();
+    const productos = document.querySelectorAll('.productos');
 
-  
+    productos.forEach(producto => {
+      const alt = producto.querySelector('img').alt.toLowerCase();
+      if (seleccion === 'todos' || alt.includes(seleccion)) {
+        producto.style.display = 'inline-block';
+      } else {
+        producto.style.display = 'none';
+      }
+    });
+  }
 </script>
 
 </body>
