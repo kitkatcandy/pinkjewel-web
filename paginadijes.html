@@ -13,6 +13,17 @@
   <h2 class="pagina2">Dijes</h2>
 </header>
 
+  <!-- Buscador por tipo -->
+<div style="text-align: center; margin-top: 20px;">
+  <label for="tipoSelector">Filtrar por tipo:</label>
+  <select id="tipoSelector" onchange="filtrarPorTipo()">
+    <option value="todos">Todos</option>
+    <option value="corazón">Corazón</option>
+    <option value="girasol">Girasol</option>
+  </select>
+</div>
+
+
 <h1 class="nuevo">¡Nuevos productos!</h1>
 
 <div class="kodfun-galeri">
@@ -64,6 +75,21 @@
     localStorage.setItem('carrito', JSON.stringify(carrito));
     alert(`${nombre} fue agregado al carrito por $${precio}.`);
   }
+
+  function filtrarPorTipo() {
+  const seleccion = document.getElementById('tipoSelector').value.toLowerCase();
+  const productos = document.querySelectorAll('.productos');
+
+  productos.forEach(producto => {
+    const alt = producto.querySelector('img').alt.toLowerCase();
+    if (seleccion === 'todos' || alt.includes(seleccion)) {
+      producto.style.display = 'inline-block';
+    } else {
+      producto.style.display = 'none';
+    }
+  });
+}
+
 </script>
 
 </body>
