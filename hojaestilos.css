@@ -81,9 +81,14 @@ body {
 .productos img {
   width: 100%;
   height: auto;
-  border: 5px solid #EC1C61;
   border-radius: 10px;
 }
+
+.productos a {
+  text-decoration: none;
+  color: inherit;
+}
+
 
 .letras {
   font-size: 1.5rem;
@@ -280,16 +285,6 @@ body {
   margin: 20px;
 }
 
-.regresar2 {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #EC1C61;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 .footer2 {
   text-align: center;
   padding: 20px 0;
@@ -345,6 +340,9 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  display: block;
+  margin: 20px auto;
+  text-decoration: none;
 }
 
 .regresar2:hover {
@@ -353,15 +351,24 @@ body {
 
 .boton-carrito {
   margin-top: 10px;
+  margin-right: 10px;
   padding: 10px 15px;
   background-color: #EC1C61;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-right: 10px;
   font-weight: bold;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
 }
+
+a.boton-carrito {
+  text-decoration: none;
+}
+
 
 .boton-carrito:hover {
   background-color: #a05f7c;
@@ -374,6 +381,12 @@ body {
   font-family: 'Times New Roman', serif;
   margin-top: -10px;
 }
+
+.nuevo {
+  text-align: center;
+  margin: 20px 0; /* 20px arriba y abajo, 0 a los lados */
+}
+
 
 .filtro-color {
   text-align: center;
@@ -476,7 +489,7 @@ html, body {
 }
 
 .eliminar-btn {
-  background-color: red;
+  background-color: #EC1C61;
   color: white;
   border: none;
   padding: 2px 6px;
