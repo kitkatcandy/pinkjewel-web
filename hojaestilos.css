@@ -136,14 +136,6 @@ body {
   padding: 10px;
 }
 
-.footer {
-  background-color: #EC1C61;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-}
-
 /* RESPONSIVE */
 @media (min-width: 768px) {
   .header {
@@ -510,11 +502,13 @@ html, body {
 .modal-contenido {
   background: white;
   margin: 10% auto;
-  padding: 20px;
-  width: 300px;
-  border-radius: 10px;
+  padding: 5px;
+  width: 500px;
+  border-radius: 5px;
   text-align: left;
+  font-size: 14px;
 }
+
 
 .cerrar {
   float: right;
