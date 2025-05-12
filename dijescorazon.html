@@ -10,6 +10,17 @@
 <body>
 	<img class="productos" src="dije1C.png">
 	<p class="texto">Dije con forma de corazón y piedra brillante multicolor: 159 MXN </p></p>
+
+	<button class="boton-carrito" onclick="agregarAlCarrito('Dije Corazón', 159)">Agregar al carrito</button>
+
+	 <script>
+  function agregarAlCarrito(nombre, precio) {
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    carrito.push({ nombre, precio });
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    alert(`${nombre} fue agregado al carrito por $${precio}.`);
+  }
+</script>
 	
 <a href="paginadijes.html">
   <div class="contenedor">
