@@ -12,7 +12,7 @@
 	<p class="texto"> Anillo con piedra azul en forma de diamante precio: 449 MXN </p>
 	<p class="texto"> Anteriormente 499 MXN. </p>
 
-	 <button class="boton-carrito" onclick="agregarAlCarrito('Anillo azul', 499)">Agregar al carrito</button>
+	 <button class="boton-carrito" onclick="agregarAlCarrito('Anillo azul', 449)">Agregar al carrito</button>
   </div>
 
   <script>
@@ -22,21 +22,6 @@
     localStorage.setItem('carrito', JSON.stringify(carrito));
     alert(`${nombre} fue agregado al carrito por $${precio}.`);
   }
-
-  function filtrarPorColor() {
-  const seleccion = document.getElementById('colorSelector').value;
-  const productos = document.querySelectorAll('.productos');
-
-  productos.forEach(producto => {
-    const alt = producto.querySelector('img').alt.toLowerCase();
-    if (seleccion === 'todos' || alt.includes(seleccion)) {
-      producto.style.display = 'inline-block';
-    } else {
-      producto.style.display = 'none';
-    }
-  });
-}
-
 </script>
 
 <a href="paginaanillos.html">
