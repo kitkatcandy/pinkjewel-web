@@ -12,6 +12,32 @@
 <p class="texto"> Anillo con piedra morada en forma de ovalo : 379 MXN </p>
 <p class="texto"> Anteriormente 399 MXN. </p>
 
+	<button class="boton-carrito" onclick="agregarAlCarrito('Anillo morado circular', 379)">Agregar al carrito</button>
+
+<script>
+  function agregarAlCarrito(nombre, precio) {
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    carrito.push({ nombre, precio });
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    alert(`${nombre} fue agregado al carrito por $${precio}.`);
+  }
+
+  function filtrarPorColor() {
+  const seleccion = document.getElementById('colorSelector').value;
+  const productos = document.querySelectorAll('.productos');
+
+  productos.forEach(producto => {
+    const alt = producto.querySelector('img').alt.toLowerCase();
+    if (seleccion === 'todos' || alt.includes(seleccion)) {
+      producto.style.display = 'inline-block';
+    } else {
+      producto.style.display = 'none';
+    }
+  });
+}
+
+</script>
+
 <a href="paginaanillos.html">
   <div class="contenedor">
     <button class="regresar2">Regresar</button>
