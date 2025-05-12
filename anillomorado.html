@@ -12,6 +12,18 @@
 	<p class="texto"> Anillo con piedra lila en forma de rectángulo precio: 329 MXN. </p>
 	<p class="texto"> Anteriormente 369 MXN. </p>
 
+	<button class="boton-carrito" onclick="agregarAlCarrito('Anillo morado rectangular', 329)">Agregar al carrito</button>
+  </div>
+
+  <script>
+  function agregarAlCarrito(nombre, precio) {
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    carrito.push({ nombre, precio });
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    alert(`${nombre} fue agregado al carrito por $${precio}.`);
+  }
+</script>
+
 <a href="paginaanillos.html">
   <div class="contenedor">
     <button class="regresar2">Regresar</button>
