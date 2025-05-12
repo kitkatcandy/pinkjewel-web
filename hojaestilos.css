@@ -328,15 +328,16 @@ footer.footer2 {
 }
 
 .regresar2 {
+  display: inline-block;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 18px;
   background-color: #EC1C61;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin: 20px auto;
-  text-decoration: none;
+  text-decoration: none; /* Esto elimina la "línea azul" */
 }
 
 .boton-carrito {
