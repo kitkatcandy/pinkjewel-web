@@ -371,7 +371,7 @@ a.boton-carrito:hover {
 .subnombre {
   font-size: 24px;
   color: white;
-  font-family: 'Times New Roman', serif;
+  font-family: 'Times New Roman';
   margin-top: -10px;
 }
 
@@ -388,7 +388,7 @@ a.boton-carrito:hover {
   border: 2px solid #EC1C61;
   border-radius: 12px;
   background-color: #fff0f5;
-  font-family: 'Times New Roman', serif;
+  font-family: 'Times New Roman';
   box-shadow: 0 4px 10px rgba(236, 28, 97, 0.2);
   width: fit-content;
   margin-left: auto;
@@ -418,7 +418,7 @@ form {
   border: 2px solid #EC1C61;
   border-radius: 12px;
   background-color: #fff0f5;
-  font-family: 'Times New Roman', serif;
+  font-family: 'Times New Roman';
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
   display: flex;
   flex-direction: column;
@@ -455,7 +455,7 @@ form button[type="submit"]:hover {
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Times New Roman', serif;
+  font-family: 'Times New Roman';
   background-color: #fff0f5;
   display: flex;
   flex-direction: column;
