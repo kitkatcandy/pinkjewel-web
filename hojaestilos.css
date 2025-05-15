@@ -516,3 +516,27 @@ html, body {
   cursor: pointer;
   font-size: 20px;
 }
+
+/* Estilo para los inputs del formulario de pago */
+form input[type="text"],
+form input[type="email"],
+form input[type="month"],
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 2px solid #EC1C61;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="month"]:focus,
+form textarea:focus {
+  border-color: #c0174f;
+  box-shadow: 0 0 5px rgba(192, 23, 79, 0.5);
+  outline: none;
+}
