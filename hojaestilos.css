@@ -412,45 +412,59 @@ a.boton-carrito:hover {
 }
 
 form {
+  width: 100%;
   max-width: 400px;
   margin: 30px auto;
-  padding: 30px;
+  padding: 25px 20px;
   border: 2px solid #EC1C61;
   border-radius: 12px;
   background-color: #fff0f5;
-  font-family: 'Times New Roman';
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  font-family: 'Times New Roman', serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 15px;
 }
-
 form input[type="text"],
 form input[type="email"],
+form input[type="month"],
 form textarea {
   width: 100%;
   padding: 12px;
-  margin-bottom: 20px;
-  border: 1.5px solid #EC1C61;
+  border: 2px solid #EC1C61;
   border-radius: 8px;
   font-size: 16px;
   box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="month"]:focus,
+form textarea:focus {
+  border-color: #c0174f;
+  box-shadow: 0 0 5px rgba(192, 23, 79, 0.5);
+  outline: none;
 }
 
 form button[type="submit"] {
   background-color: #EC1C61;
   color: white;
   border: none;
-  padding: 10px 25px;
+  padding: 12px 25px;
   border-radius: 6px;
   font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  align-self: center;
+  width: 100%;
 }
 
 form button[type="submit"]:hover {
   background-color: #c0174f;
 }
+
 
 html, body {
   margin: 0;
@@ -502,15 +516,14 @@ html, body {
 
 .modal-contenido {
   background: white;
-  margin: 10% auto;
-  padding: 5px;
-  width: 500px;
-  border-radius: 5px;
+  margin: 5% auto;
+  padding: 15px 20px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
   text-align: left;
   font-size: 14px;
 }
-
-
 .cerrar {
   float: right;
   cursor: pointer;
