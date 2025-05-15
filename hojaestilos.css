@@ -516,14 +516,20 @@ html, body {
 
 .modal-contenido {
   background: white;
-  margin: 5% auto;
-  padding: 15px 20px;
+  margin: auto;
+  padding: 20px;
   width: 90%;
   max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
   border-radius: 10px;
   text-align: left;
   font-size: 14px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
+
 .cerrar {
   float: right;
   cursor: pointer;
